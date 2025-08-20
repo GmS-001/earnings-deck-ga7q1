@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Q{N} Earnings – Interactive Stakeholder Deck</title>
+  <!-- Reveal.js core CSS & theme (via CDN so it runs on GitHub Pages) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/reveal.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/theme/black.css" id="theme" />
+  <!-- Code highlight styles -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5/plugin/highlight/monokai.css" />
+  <style>
+    .tiny { font-size: 0.8rem; }
+    .muted { opacity: 0.75; }
+    .kpi { font-size: 2.8rem; font-weight: 700; }
+    .card { padding: 1rem 1.25rem; border-radius: 1rem; box-shadow: 0 10px 24px rgba(0,0,0,.25); }
+  </style>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- Title -->
+      <section>
+        <h2>Quarterly Earnings Report</h2>
+        <p class="muted">Interactive deck for stakeholders</p>
+        <p class="tiny">Prepared by: Technical Consultant • <strong>22f3002384@ds.study.iitm.ac.in</strong></p>
+        <p class="tiny">Tip: Press <kbd>?</kbd> for help • Use <kbd>O</kbd> for overview, <kbd>S</kbd> for speaker view</p>
+        <aside class="notes">
+          Welcome everyone. This is a live, interactive deck built with Reveal.js—supports code, math, and fragments. Use S for speaker notes.
+        </aside>
+      </section>
+
+      <!-- Markdown slide (requirement: at least one slide in Markdown) -->
+      <section data-markdown>
+        <textarea data-template>
+### Headline Results (Markdown)
+
+- **Revenue:** $3.72B *(+6.4% YoY)*
+- **Operating Margin:** 18.2%
+- **EPS (diluted):** $1.42
+- **Cash & Equivalents:** $1.1B
+
+> Highlights: Diversified fee income, robust NIM, disciplined cost controls.
+
+*Speaker tip:* Use the next slide for animated KPIs.
+        </textarea>
+        <aside class="notes">This slide proves Markdown rendering works. Keep bullets crisp; dive deeper on subsequent slides.</aside>
+      </section>
+
+      <!-- Animated elements using fragments -->
+      <section>
+        <h3>KPIs at a glance</h3>
+        <div class="card">
+          <p class="kpi fragment">Net Interest Margin: <strong>3.21%</strong></p>
+          <p class="kpi fragment">Cost-to-Income: <strong>52.8%</strong></p>
+          <p class="kpi fragment">CET1 Ratio: <strong>13.6%</strong></p>
+          <p class="kpi fragment">ROE: <strong>14.9%</strong></p>
+        </div>
+        <aside class="notes">Reveal each KPI with fragments. Pause for questions after ROE.</aside>
+      </section>
+
+      <!-- Code sample with syntax highlighting -->
+      <section>
+        <h3>Reproducible Metrics (Code Sample)</h3>
+        <pre><code class="language-python"># Simple EPS computation with buybacks effect
+import math
+
+net_income = 1_020_000_000   # USD
+shares_start = 720_000_000
+buyback_shares = 20_000_000
+avg_shares = shares_start - buyback_shares/2
+
+basic_eps = net_income / avg_shares
+print(f"EPS: {basic_eps:.2f}")
+        </code></pre>
+        <aside class="notes">Explain that code blocks are syntax-highlighted via the highlight plugin; this promotes transparency and auditability.</aside>
+      </section>
+
+      <!-- Mathematics (financial formulas) -->
+      <section>
+        <h3>Financial Math</h3>
+        <p>Weighted Average Cost of Capital (WACC):</p>
+        <p>\[ \mathrm{WACC} = \tfrac{E}{V} r_e + \tfrac{D}{V} r_d (1 - T) \]</p>
+        <div class="fragment">
+          <p>Dividend Discount Model (Gordon Growth):</p>
+          <p>\[ P_0 = \frac{D_1}{r - g} \quad \text{where}\quad D_1 = D_0 (1+g) \]</p>
+        </div>
+        <aside class="notes">KaTeX renders math instantly. Walk through inputs for WACC (cost of equity, cost of debt, tax shield) and how growth affects valuation.</aside>
+      </section>
+
+      <!-- Notes demo & closing -->
+      <section>
+        <h3>Next Steps</h3>
+        <ul>
+          <li class="fragment">Publish on <strong>GitHub Pages</strong></li>
+          <li class="fragment">Share link with cache-busting query: <code>?v=1</code>, <code>?v=2</code></li>
+          <li class="fragment">Attach PDF export to investor memo</li>
+        </ul>
+        <aside class="notes">After publishing, distribute both the live link and a static PDF for regulators who prefer archived artifacts.</aside>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- Reveal.js core + plugins -->
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/reveal.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5/plugin/markdown/markdown.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5/plugin/notes/notes.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5/plugin/highlight/highlight.js"></script>
+  <!-- Math via KaTeX plugin -->
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5/plugin/math/math.js"></script>
+  <script>
+    // Initialize Reveal with plugins
+    Reveal.initialize({
+      hash: true,
+      slideNumber: true,
+      plugins: [ RevealMarkdown, RevealNotes, RevealHighlight, RevealMath.KaTeX ],
+      // Optional: center content & enable progress bar
+      center: true,
+      progress: true
+    });
+  </script>
+</body>
+</html>
